@@ -1,0 +1,136 @@
+{
+	"nodes": [
+		{
+			"id": 1,
+			"x": 50,
+			"y": 220,
+			"name": "Start",
+			"type": "start",
+			"borderWidth": "2px",
+			"cssClass": "default",
+			"value": "Start",
+			"width": 120,
+			"height": 60
+		},
+		{
+			"id": 2,
+			"x": 630,
+			"y": 220,
+			"name": "End",
+			"type": "end",
+			"borderWidth": "2px",
+			"cssClass": "default",
+			"value": "End",
+			"width": 120,
+			"height": 60
+		},
+		{
+			"id": 3,
+			"x": 340,
+			"y": 130,
+			"name": "Custom size",
+			"type": "database",
+			"width": 120,
+			"borderWidth": "2px",
+			"height": 40,
+			"cssClass": "default",
+			"value": "database"
+		},
+		{
+			"id": 4,
+			"x": 240,
+			"y": 220,
+			"borderWidth": "2px",
+			"name": "Operation",
+			"type": "operation",
+			"cssClass": "default",
+			"value": "operation",
+			"width": 120,
+			"height": 60
+		},
+		{
+			"id": 5,
+			"x": 440,
+			"y": 220,
+			"borderWidth": "2px",
+			"name": "Operation",
+			"type": "operation",
+			"width": 120,
+			"height": 60
+		}
+	],
+	"connections": [
+		{
+			"source": {
+				"id": 1,
+				"position": "right"
+			},
+			"destination": {
+				"id": 4,
+				"position": "left"
+			},
+			"id": 1,
+			"type": "pass"
+		},
+		{
+			"source": {
+				"id": 4,
+				"position": "right"
+			},
+			"destination": {
+				"id": 5,
+				"position": "left"
+			},
+			"id": 2,
+			"type": "pass"
+		},
+		{
+			"source": {
+				"id": 5,
+				"position": "right"
+			},
+			"destination": {
+				"id": 2,
+				"position": "left"
+			},
+			"id": 3,
+			"type": "pass"
+		},
+		{
+			"source": {
+				"id": 5,
+				"position": "bottom"
+			},
+			"destination": {
+				"id": 4,
+				"position": "bottom"
+			},
+			"id": 4,
+			"type": "reject"
+		},
+		{
+			"source": {
+				"id": 1,
+				"position": "top"
+			},
+			"destination": {
+				"id": 3,
+				"position": "left"
+			},
+			"id": 5,
+			"type": "pass"
+		},
+		{
+			"source": {
+				"id": 3,
+				"position": "right"
+			},
+			"destination": {
+				"id": 2,
+				"position": "top"
+			},
+			"id": 6,
+			"type": "pass"
+		}
+	]
+}
