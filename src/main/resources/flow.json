@@ -1,0 +1,678 @@
+{
+	"nodes": [
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"name": "新闻爬虫",
+			"x": 70,
+			"width": 150,
+			"y": 80,
+			"id": "欧拉舆情链路-新闻爬虫",
+			"type": "dataNode",
+			"value": [
+				{
+					"val": 12,
+					"color": "#000000"
+				},
+				{
+					"val": 1234,
+					"color": "#000000"
+				},
+				{
+					"val": 12,
+					"color": "#000000"
+				},
+				{
+					"val": 123,
+					"color": "red"
+				}
+			],
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"name": "OpenApi",
+			"x": 70,
+			"width": 150,
+			"y": 200,
+			"id": "欧拉舆情链路-OpenApi",
+			"type": "dataNode",
+			"value": [
+				{
+					"val": "Teresa V",
+					"color": "#000000"
+				}
+			],
+			"height": 45
+		},
+		{
+			"offset": 15,
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "gfaceNewsTopicHigh",
+			"x": 560,
+			"width": 150,
+			"y": 40,
+			"id": "欧拉舆情链路-gfaceNewsTopicHigh",
+			"type": "msg",
+			"value": [
+				{
+					"val": "1,2,3,4",
+					"color": "#000000"
+				}
+			],
+			"height": 45
+		},
+		{
+			"offset": 15,
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "gfaceNewsTopicLow",
+			"x": 560,
+			"width": 150,
+			"y": 130,
+			"id": "欧拉舆情链路-gfaceNewsTopicLow",
+			"type": "msg",
+			"value": [
+				{
+					"val": "1,2,3,4",
+					"color": "#000000"
+				}
+			],
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"name": "NewsImport",
+			"x": 70,
+			"width": 150,
+			"y": 330,
+			"id": "欧拉舆情链路-NewsImport",
+			"type": "dataNode",
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 360,
+			"name": "KafkaNewsHighDispatcher",
+			"width": 150,
+			"y": 40,
+			"id": "欧拉舆情链路-KafkaNewsHighDispatcher",
+			"type": "dataNode",
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 360,
+			"name": "KafkaNewsLowDispatcher",
+			"width": 150,
+			"y": 130,
+			"id": "欧拉舆情链路-KafkaNewsLowDispatcher",
+			"type": "dataNode",
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 360,
+			"name": "舆情去重模型链路",
+			"width": 150,
+			"y": 210,
+			"id": "舆情去重模型链路",
+			"subNodes": {
+				"nodes": [
+					{
+						"cssClass": "default",
+						"borderWidth": "2px",
+						"x": 50,
+						"name": "Start",
+						"width": 150,
+						"y": 220,
+						"id": 1,
+						"type": "start",
+						"value": "Start",
+						"height": 60
+					},
+					{
+						"cssClass": "default",
+						"borderWidth": "2px",
+						"x": 630,
+						"name": "End",
+						"width": 150,
+						"y": 220,
+						"id": 2,
+						"type": "end",
+						"value": "End",
+						"height": 60
+					},
+					{
+						"cssClass": "default",
+						"borderWidth": "2px",
+						"x": 340,
+						"name": "Custom size",
+						"width": 150,
+						"y": 130,
+						"id": 3,
+						"type": "database",
+						"value": "database",
+						"height": 40
+					},
+					{
+						"cssClass": "default",
+						"borderWidth": "2px",
+						"x": 240,
+						"name": "Operation",
+						"width": 150,
+						"y": 220,
+						"id": 4,
+						"type": "operation",
+						"value": "operation",
+						"height": 60
+					},
+					{
+						"borderWidth": "2px",
+						"x": 440,
+						"name": "Operation",
+						"width": 150,
+						"y": 220,
+						"id": 5,
+						"type": "operation",
+						"height": 60
+					}
+				],
+				"connections": [
+					{
+						"destination": {
+							"id": 4,
+							"position": "left"
+						},
+						"source": {
+							"id": 1,
+							"position": "right"
+						},
+						"id": 1,
+						"type": "pass"
+					},
+					{
+						"destination": {
+							"id": 5,
+							"position": "left"
+						},
+						"source": {
+							"id": 4,
+							"position": "right"
+						},
+						"id": 2,
+						"type": "pass"
+					},
+					{
+						"destination": {
+							"id": 2,
+							"position": "left"
+						},
+						"source": {
+							"id": 5,
+							"position": "right"
+						},
+						"id": 3,
+						"type": "pass"
+					},
+					{
+						"destination": {
+							"id": 4,
+							"position": "bottom"
+						},
+						"source": {
+							"id": 5,
+							"position": "bottom"
+						},
+						"id": 4,
+						"type": "reject"
+					},
+					{
+						"destination": {
+							"id": 3,
+							"position": "left"
+						},
+						"source": {
+							"id": 1,
+							"position": "top"
+						},
+						"id": 5,
+						"type": "pass"
+					},
+					{
+						"destination": {
+							"id": 2,
+							"position": "top"
+						},
+						"source": {
+							"id": 3,
+							"position": "right"
+						},
+						"id": 6,
+						"type": "pass"
+					}
+				]
+			},
+			"type": "operation",
+			"height": 150
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 560,
+			"name": "舆情模型链路",
+			"width": 150,
+			"y": 210,
+			"approvers": [],
+			"id": "舆情模型链路",
+			"type": "operation",
+			"height": 150
+		},
+		{
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "gface_news",
+			"x": 260,
+			"width": 150,
+			"y": 490,
+			"id": "欧拉舆情链路-gface_news",
+			"type": "database",
+			"value": "gface_news",
+			"height": 40
+		},
+		{
+			"offset": 15,
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "duplicate_total_news12",
+			"x": 780,
+			"width": 150,
+			"y": 190,
+			"id": "欧拉舆情链路-duplicate_total_news12",
+			"type": "msg",
+			"value": [
+				{
+					"val": "1,2,3,4",
+					"color": "#000000"
+				}
+			],
+			"height": 45
+		},
+		{
+			"offset": 15,
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "risk_result_yuqing",
+			"x": 780,
+			"width": 150,
+			"y": 340,
+			"id": "欧拉舆情链路-risk_result_yuqing",
+			"type": "msg",
+			"value": [
+				{
+					"val": "1,2,3,4",
+					"color": "#000000"
+				}
+			],
+			"height": 45
+		},
+		{
+			"offset": 15,
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "duplicate_all_total_news_0616",
+			"x": 780,
+			"width": 150,
+			"y": 490,
+			"id": "欧拉舆情链路-duplicate_all_total_news_0616",
+			"type": "msg",
+			"value": [
+				{
+					"val": "1,2,3,4",
+					"color": "#000000"
+				}
+			],
+			"height": 45
+		},
+		{
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "gface_psp_total_news_all_duplicate_new",
+			"x": 460,
+			"width": 350,
+			"y": 420,
+			"id": "欧拉舆情链路-gface_psp_total_news_all_duplicate_new",
+			"type": "database",
+			"value": "gface_psp_total_news_all_duplicate_new",
+			"height": 40
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 980,
+			"name": "DuplicateNewsKp",
+			"width": 150,
+			"y": 40,
+			"id": "欧拉舆情链路-DuplicateNewsKp",
+			"type": "dataNode",
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 980,
+			"name": "DuplicateTotalNews",
+			"width": 150,
+			"y": 190,
+			"id": "欧拉舆情链路-DuplicateTotalNews",
+			"type": "dataNode",
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 980,
+			"name": "DuplicateAllTotalNews",
+			"width": 150,
+			"y": 490,
+			"id": "欧拉舆情链路-DuplicateAllTotalNews",
+			"type": "dataNode",
+			"height": 45
+		},
+		{
+			"offset": 15,
+			"cssClass": "default",
+			"borderWidth": "2px",
+			"name": "mdsToPsp_duplicate01",
+			"x": 1180,
+			"width": 150,
+			"y": 40,
+			"id": "欧拉舆情链路-mdsToPsp_duplicate01",
+			"type": "msg",
+			"value": [
+				{
+					"val": "1,2,3,4",
+					"color": "#000000"
+				}
+			],
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 1180,
+			"name": "TotalNewsListener",
+			"width": "150",
+			"y": 190,
+			"id": "欧拉舆情链路-TotalNewsListener",
+			"type": "dataNode",
+			"height": 45
+		},
+		{
+			"cssClass": "info",
+			"borderWidth": "2px",
+			"x": 1180,
+			"name": "RiskResultListener",
+			"width": "150",
+			"y": 340,
+			"id": "欧拉舆情链路-RiskResultListener",
+			"type": "dataNode",
+			"height": 45
+		}
+	],
+	"connections": [
+		{
+			"destination": {
+				"id": "欧拉舆情链路-OpenApi",
+				"position": "top"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-新闻爬虫",
+				"position": "bottom"
+			},
+			"id": 1645757112973,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-NewsImport",
+				"position": "top"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-OpenApi",
+				"position": "bottom"
+			},
+			"id": 1645757116263,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-gfaceNewsTopicHigh",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-KafkaNewsHighDispatcher",
+				"position": "right"
+			},
+			"id": 1645757141849,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-gfaceNewsTopicLow",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-KafkaNewsLowDispatcher",
+				"position": "right"
+			},
+			"id": 1645759731296,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-gface_news",
+				"position": "bottom"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-NewsImport",
+				"position": "bottom"
+			},
+			"id": 1645764525173,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-KafkaNewsHighDispatcher",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-gface_news",
+				"position": "left"
+			},
+			"id": 1645764529525,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-KafkaNewsLowDispatcher",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-gface_news",
+				"position": "top"
+			},
+			"id": 1645764532815,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-duplicate_total_news12",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "舆情模型链路",
+				"position": "right"
+			},
+			"id": 1645764910307,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-risk_result_yuqing",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "舆情模型链路",
+				"position": "right"
+			},
+			"id": 1645766678621,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-DuplicateNewsKp",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-duplicate_total_news12",
+				"position": "top"
+			},
+			"id": 1645775341751,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-DuplicateTotalNews",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-duplicate_total_news12",
+				"position": "right"
+			},
+			"id": 1645775485461,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-DuplicateAllTotalNews",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-duplicate_all_total_news_0616",
+				"position": "right"
+			},
+			"id": 1645775618143,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "舆情去重模型链路",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-gface_news",
+				"position": "right"
+			},
+			"id": 1645775997445,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "舆情模型链路",
+				"position": "bottom"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-gface_psp_total_news_all_duplicate_new",
+				"position": "top"
+			},
+			"id": 1645776006854,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-duplicate_all_total_news_0616",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "舆情去重模型链路",
+				"position": "bottom"
+			},
+			"id": 1645776020024,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-gface_psp_total_news_all_duplicate_new",
+				"position": "right"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-DuplicateAllTotalNews",
+				"position": "right"
+			},
+			"id": 1645776036519,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-RiskResultListener",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-risk_result_yuqing",
+				"position": "right"
+			},
+			"id": 1645776486019,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-TotalNewsListener",
+				"position": "top"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-mdsToPsp_duplicate01",
+				"position": "bottom"
+			},
+			"id": 1645776490859,
+			"type": "pass"
+		},
+		{
+			"destination": {
+				"id": "欧拉舆情链路-mdsToPsp_duplicate01",
+				"position": "left"
+			},
+			"name": "Pass",
+			"source": {
+				"id": "欧拉舆情链路-DuplicateNewsKp",
+				"position": "right"
+			},
+			"id": 1645776504822,
+			"type": "pass"
+		}
+	]
+}
